@@ -1,45 +1,44 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <utility>
+using namespace std;
 
-void selectionSort(int arr[], int n) {
-    if (n < 2) return;
-    for (int i = 0; i < n - 1; ++i) {
-        int minIdx = i;
-        for (int j = i + 1; j < n; ++j) {
-            if (arr[j] < arr[minIdx]) {
-                minIdx = j;
-            }
-        }
-        if (minIdx != i) {
-            std::swap(arr[i], arr[minIdx]);
-        }
-    }
+void swapInt(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
-static void printArray(const int arr[], int n) {
-    for (int i = 0; i < n; ++i) {
-        std::cout << arr[i] << (i + 1 == n ? '\n' : ' ');
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (arr[minIndex] != arr[i]) {
+            swapInt(&arr[minIndex], &arr[i]);
+        }
     }
 }
 
 int main() {
-    std::srand(static_cast<unsigned>(std::time(nullptr)));
+    const int n = 10;
+    int arr[n];
 
-    const int N = 10;
-    int a[N];
-    for (int i = 0; i < N; ++i) {
-        a[i] = std::rand() % 100; // 0..99
+    cout << "Mang ban dau: ";
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand() % 50; 
+        cout << arr[i] << ' ';
     }
+    cout << '\n';
 
-    std::cout << "Mang truoc khi sap xep: ";
-    printArray(a, N);
-
-    selectionSort(a, N);
-
-    std::cout << "Mang sau khi sap xep:  ";
-    printArray(a, N);
-
+    selectionSort(arr, n);
+    cout << "Mang sau khi sap xep: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << ' ';
+    }
+    cout << '\n';
     return 0;
 }
