@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 struct Node{
     int data;
     Node* Next;
@@ -23,7 +24,6 @@ void insertFirst(node &head, int x){
 }
 
 // them vao cuoi danh sach
-
 void insertLast(node &head, int x){
     node newNode = makeNode(x);
     if (head == NULL){
@@ -50,7 +50,7 @@ int size (node head){
 // xoa phan tu
 
 void DeletePosition(node &head, int position){
-    if (head == NULL || position < 0 || position > size(head)){
+    if (head == NULL || position < 0 || position >= size(head)){
         cout << "Vi tri khong hop le" << endl;
         return;
     }
@@ -66,12 +66,11 @@ void DeletePosition(node &head, int position){
     }
     node del = temp -> Next;
     temp -> Next = del -> Next;
-    delete temp;
+    delete del;
     return;
 }
 
 // tim kiem phan tu
-
 int searchElement(node head, int x){
     int index = 0;
     while (head != NULL){

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Temp Github/2112/DSA/Algorithm/Sort",
-      "program": "d:/Temp Github/2112/DSA/Algorithm/Sort/build/Debug/outDebug",
+      "cwd": "d:/Temp Github/2112/DSA",
+      "program": "d:/Temp Github/2112/DSA/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
